@@ -20,8 +20,8 @@ export default function Layout() {
   };
 
   return (
-    <div className="grid grid-cols-[220px_1fr] min-h-screen bg-slate-50">
-      <aside className="flex flex-col bg-slate-800 shadow-lg">
+    <div className="grid h-screen grid-cols-[220px_1fr] bg-slate-50">
+      <aside className="flex flex-col bg-slate-800 shadow-xl">
         <div className="p-4 border-b border-slate-700">
           <span className="text-lg font-semibold tracking-tight text-white">BIM 3D</span>
         </div>
@@ -30,8 +30,10 @@ export default function Layout() {
           {navLink("/editor", "Editor")}
         </nav>
       </aside>
-      <main className="min-h-screen overflow-auto">
-        <Outlet />
+      <main className="flex min-h-0 flex-1 flex-col overflow-auto">
+        <div className="flex min-h-0 flex-1 flex-col">
+          <Outlet />
+        </div>
       </main>
     </div>
   );

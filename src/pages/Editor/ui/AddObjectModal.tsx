@@ -56,38 +56,38 @@ export function AddObjectModal({
     onClose();
   };
 
+  const inputClass =
+    'w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-800 placeholder-slate-400 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20 transition-colors';
+  const labelClass = 'mb-1.5 block text-sm font-medium text-slate-700';
+
   return (
     <ModalWindow isOpen={isOpen} onClose={onClose} title="Add object">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div>
-          <label htmlFor="add-obj-name" className="block text-sm font-medium text-gray-700 mb-1">
-            Name
-          </label>
+          <label htmlFor="add-obj-name" className={labelClass}>Name</label>
           <input
             id="add-obj-name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Object name"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className={inputClass}
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? 'add-obj-name-error' : undefined}
           />
           {errors.name && (
-            <p id="add-obj-name-error" className="mt-1 text-sm text-red-600" role="alert">
+            <p id="add-obj-name-error" className="mt-1.5 text-sm text-red-600" role="alert">
               {errors.name}
             </p>
           )}
         </div>
         <div>
-          <label htmlFor="add-obj-designer" className="block text-sm font-medium text-gray-700 mb-1">
-            Designer
-          </label>
+          <label htmlFor="add-obj-designer" className={labelClass}>Designer</label>
           <select
             id="add-obj-designer"
             value={designerId}
             onChange={(e) => setDesignerId(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className={inputClass}
             aria-invalid={!!errors.designer}
             aria-describedby={errors.designer ? 'add-obj-designer-error' : undefined}
           >
@@ -99,20 +99,18 @@ export function AddObjectModal({
             ))}
           </select>
           {errors.designer && (
-            <p id="add-obj-designer-error" className="mt-1 text-sm text-red-600" role="alert">
+            <p id="add-obj-designer-error" className="mt-1.5 text-sm text-red-600" role="alert">
               {errors.designer}
             </p>
           )}
         </div>
         <div>
-          <label htmlFor="add-obj-size" className="block text-sm font-medium text-gray-700 mb-1">
-            Size
-          </label>
+          <label htmlFor="add-obj-size" className={labelClass}>Size</label>
           <select
             id="add-obj-size"
             value={size}
             onChange={(e) => setSize(e.target.value as ObjectSize)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
+            className={inputClass}
           >
             {SIZE_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -122,28 +120,26 @@ export function AddObjectModal({
           </select>
         </div>
         <div>
-          <label htmlFor="add-obj-color" className="block text-sm font-medium text-gray-700 mb-1">
-            Color
-          </label>
+          <label htmlFor="add-obj-color" className={labelClass}>Color</label>
           <input
             id="add-obj-color"
             type="color"
             value={color}
             onChange={(e) => setColor(e.target.value)}
-            className="w-full h-10 border border-gray-300 rounded cursor-pointer"
+            className="h-11 w-full rounded-xl border border-slate-300 cursor-pointer bg-white p-1"
           />
         </div>
-        <div className="flex gap-2 mt-2">
+        <div className="flex gap-3 pt-1">
           <button
             type="submit"
-            className="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="flex-1 rounded-xl bg-slate-800 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition-colors"
           >
             Add object
           </button>
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+            className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition-colors"
           >
             Cancel
           </button>

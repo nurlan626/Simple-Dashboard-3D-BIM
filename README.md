@@ -1,4 +1,47 @@
-# React + TypeScript + Vite
+# Simple Dashboard 3D (BIM 3D Project)
+
+React app with two pages: **Designers** (list and add designers) and **Editor** (3D canvas with placeable, selectable, movable objects). Data is served by a mock API (MSW) with optional persistence in `localStorage`; switching to a real API is done via env and `baseQuery`.
+
+## How to run locally
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Run in development (mock API enabled by default)**
+   ```bash
+   npm run dev
+   ```
+   Open the URL shown in the terminal (e.g. `http://localhost:5173`).
+
+   To use a real backend instead of the mock, set env and run:
+   ```bash
+   VITE_USE_MOCK=0 VITE_API_BASE_URL=https://your-api.example.com npm run dev
+   ```
+
+3. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+4. **Preview production build**
+   ```bash
+   npm run preview
+   ```
+
+## Tech stack
+
+- **React** 19, **TypeScript**, **Vite** 7  
+- **React Router** 7  
+- **Redux Toolkit** + RTK Query (state & API)  
+- **React Three Fiber** + **Drei** + **Three.js** (3D editor)  
+- **Tailwind CSS** 4, **Headless UI** (modals)  
+- **MSW** (mock API)
+
+---
+
+# React + TypeScript + Vite (template notes)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

@@ -57,88 +57,73 @@ export function ObjectPropertiesPanel({
     });
   };
 
+  const inputClass =
+    'w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-800 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20 transition-colors';
+  const labelClass = 'mb-1.5 block text-sm font-medium text-slate-700';
+
   return (
-    <div className="w-72 bg-white border-l border-gray-200 shadow-lg flex flex-col h-full">
-      <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-        <h2 className="font-semibold text-gray-800">Object properties</h2>
+    <div className="flex w-80 shrink-0 flex-col h-full bg-white border-l border-slate-200 shadow-xl">
+      <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+        <h2 className="font-semibold text-slate-800">Object properties</h2>
         <button
           type="button"
           onClick={onClose}
-          className="text-gray-500 hover:text-gray-700 p-1 rounded focus:ring-2 focus:ring-blue-500"
+          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-500"
           aria-label="Close panel"
         >
-          ✕
+          <span className="text-lg leading-none">×</span>
         </button>
       </div>
-      <form onSubmit={handleSubmit} className="p-4 flex flex-col gap-3 flex-1 overflow-auto">
+      <form onSubmit={handleSubmit} className="flex flex-1 flex-col gap-4 overflow-auto p-4">
         <div>
-          <label htmlFor="prop-name" className="block text-sm font-medium text-gray-700 mb-1">
-            Name
-          </label>
+          <label htmlFor="prop-name" className={labelClass}>Name</label>
           <input
             id="prop-name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
+            className={inputClass}
             aria-invalid={!!errors.name}
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-red-600" role="alert">
-              {errors.name}
-            </p>
+            <p className="mt-1.5 text-sm text-red-600" role="alert">{errors.name}</p>
           )}
         </div>
         <div>
-          <label htmlFor="prop-designer" className="block text-sm font-medium text-gray-700 mb-1">
-            Designer
-          </label>
-          <select
-            id="prop-designer"
-            value={designerId}
-            onChange={(e) => setDesignerId(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
-          >
+          <label htmlFor="prop-designer" className={labelClass}>Designer</label>
+          <select id="prop-designer" value={designerId} onChange={(e) => setDesignerId(e.target.value)} className={inputClass}>
             {designers.map((d) => (
-              <option key={d.id} value={d.id}>
-                {d.fullName}
-              </option>
+              <option key={d.id} value={d.id}>{d.fullName}</option>
             ))}
           </select>
         </div>
         <div>
-          <label htmlFor="prop-size" className="block text-sm font-medium text-gray-700 mb-1">
-            Size
-          </label>
+          <label htmlFor="prop-size" className={labelClass}>Size</label>
           <select
             id="prop-size"
             value={size}
             onChange={(e) => setSize(e.target.value as ObjectSize)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
+            className={inputClass}
           >
             {SIZE_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
             ))}
           </select>
         </div>
         <div>
-          <label htmlFor="prop-color" className="block text-sm font-medium text-gray-700 mb-1">
-            Color
-          </label>
+          <label htmlFor="prop-color" className={labelClass}>Color</label>
           <input
             id="prop-color"
             type="color"
             value={color}
             onChange={(e) => setColor(e.target.value)}
-            className="w-full h-10 border border-gray-300 rounded cursor-pointer"
+            className="h-11 w-full rounded-xl border border-slate-300 cursor-pointer bg-white p-1"
           />
         </div>
-        <div className="mt-auto pt-2 flex flex-col gap-2">
+        <div className="mt-auto flex flex-col gap-2 pt-2">
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-xl bg-slate-800 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition-colors"
           >
             Save changes
           </button>
@@ -150,7 +135,7 @@ export function ObjectPropertiesPanel({
                 onClose();
               }
             }}
-            className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 focus:ring-2 focus:ring-red-500"
+            className="w-full rounded-xl bg-red-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors"
           >
             Delete object
           </button>
