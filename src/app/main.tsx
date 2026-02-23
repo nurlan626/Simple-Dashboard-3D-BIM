@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { isMock } from "../shared/config/api";
+import { isMock } from "../shared/config";
 import { startMockServer } from "../shared/mock/startMockServer";
 import App from "./App.tsx";
 import "./styles/index.css";

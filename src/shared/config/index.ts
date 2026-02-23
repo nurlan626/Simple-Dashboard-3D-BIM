@@ -1,0 +1,1 @@
+export { isMock } from "./api";
