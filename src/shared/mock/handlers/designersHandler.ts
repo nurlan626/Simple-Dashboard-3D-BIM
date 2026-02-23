@@ -4,8 +4,8 @@ import type { Designer } from '../../../entities/designer/model/types';
 const STORAGE_KEY = 'designers';
 
 const defaultData: Designer[] = [
-  { id: "1", fullName: "Mansur Aliyev", workingHours: 8, attachedObjectsCount: 3 },
-  { id: "2", fullName: "Emin Mehdiyev", workingHours: 6, attachedObjectsCount: 1 },
+  { id: "1", fullName: "Mansur Aliyev", workingHours: 8, attachedObjectsCount: 0 },
+  { id: "2", fullName: "Emin Mehdiyev", workingHours: 6, attachedObjectsCount: 0 },
 ];
 
 
